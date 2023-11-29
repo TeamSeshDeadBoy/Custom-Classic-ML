@@ -1,6 +1,6 @@
-from custom.metrics import squared_errors
+from custom.metrics import regression_metrics
 
 class summ:
     def __init__(self) -> None:
-        self.value = squared_errors.MSE()
+        self.value = regression_metrics.MSE()
         pass
