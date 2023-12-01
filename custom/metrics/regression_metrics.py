@@ -15,6 +15,8 @@ def MAPE(true, pred):
 def SMAPE(true, pred):
     return (1 / true.shape[0]) * np.sum((2 * np.abs(true - pred)) / (true + pred))
 
-def RSQUARED(true, pred):
-    n = len(true)
-    return np.square((n * np.sum(true * pred) - np.sum(true) * np.sum(pred)) / np.sqrt((n * np.sum(np.square(true)) - np.square(np.sum(true))) * (n * np.sum(np.square(pred)) - np.square(np.sum(pred)))))
+def RSQ(true, pred):
+    mean = np.mean(true)
+    ss_mean = np.sum(np.square(true - mean))
+    ss_fit =  np.sum(np.square(true - pred))
+    return (ss_mean - ss_fit) / ss_mean
